@@ -66,6 +66,8 @@ class TweetsController < ApplicationController
       tweet = Tweet.find_by(id: params[:id])
       tweet.destroy
       redirect to '/tweets'
+    else
+      
     end
   end
 
