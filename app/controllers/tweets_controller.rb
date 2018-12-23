@@ -44,6 +44,7 @@ class TweetsController < ApplicationController
       @tweet = Tweet.find_by(id: params[:id])
       erb :'/tweets/edit_tweet'
     else
+      binding.pry
       redirect to "/tweets"
     end
   end
