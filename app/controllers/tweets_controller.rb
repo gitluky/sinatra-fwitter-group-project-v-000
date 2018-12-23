@@ -67,7 +67,7 @@ class TweetsController < ApplicationController
       tweet.destroy
       redirect to '/tweets'
     else
-      
+      redirect to '/tweets'
     end
   end
 
