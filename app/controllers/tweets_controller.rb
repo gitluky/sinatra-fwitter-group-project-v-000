@@ -40,7 +40,7 @@ class TweetsController < ApplicationController
 
   get '/tweets/:id/edit' do
     binding.pry
-    if Helpers.logged_in?(session) && params[:id] == session[:user_id]
+    if Helpers.logged_in?(session) && params[:id].to_i == session[:user_id]
       @tweet = Tweet.find_by(id: params[:id])
       erb :'/tweets/edit_tweet'
     else
