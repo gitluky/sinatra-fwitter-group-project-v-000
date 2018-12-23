@@ -40,7 +40,7 @@ class TweetsController < ApplicationController
 
   get '/tweets/:id/edit' do
     if Helpers.logged_in?(session)
-      if  params[:id].to_i == session[:user_id]
+      if params[:id].to_i == session[:user_id]
         @tweet = Tweet.find_by(id: params[:id])
         erb :'/tweets/edit_tweet'
       else
@@ -62,9 +62,10 @@ class TweetsController < ApplicationController
   end
 
   delete '/tweets/delete/:id' do
-    tweet = Tweet.find_by(id: params[:id])
-    tweet.destroy
-    redirect to '/tweets'
+    if 
+      tweet = Tweet.find_by(id: params[:id])
+      tweet.destroy
+      redirect to '/tweets'
   end
 
 
